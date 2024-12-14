@@ -1,0 +1,17 @@
+-- Insertion dans la table Admin
+INSERT INTO Admin (name, surname, username, password, isConnected, role)
+VALUES 
+('Alice', 'Martin', 'marali', 'Admin#2023', 0, 1),
+('Bob', 'Dupont', 'dupbob', 'Secure#2023', 0, 1),
+('Claire', 'Dubois', 'dubcla', 'Pass@1234', 0, 1),
+('David', 'Lemoine', 'lemdav', 'Hello#2024', 0, 1),
+('Emma', 'Bernard', 'beremm', 'Password#1', 0, 1);
+
+-- Insertion dans la table Employee
+INSERT INTO Employee (name, surname, username, password, isConnected, role)
+VALUES
+('Marc', 'Durand', 'durmar', 'Worker#2023', 0, 0),
+('Julia', 'Petit', 'petjul', 'Test#2023', 0, 0),
+('Antoine', 'Renaud', 'renant', 'Worker@2023', 0, 0),
+('Sophie', 'Girard', 'girsop', 'Secure#2024', 0, 0),
+('Lucas', 'Morel', 'morluc', 'Password@1', 0, 0);
