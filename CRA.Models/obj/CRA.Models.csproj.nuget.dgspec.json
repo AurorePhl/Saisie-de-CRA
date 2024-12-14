@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\laura\\source\\repos\\Saisie-de-CRA\\app\\app.csproj": {}
+    "C:\\Users\\laura\\source\\repos\\Saisie-de-CRA\\CRA.Models\\CRA.Models.csproj": {}
   },
   "projects": {
-    "C:\\Users\\laura\\source\\repos\\Saisie-de-CRA\\app\\app.csproj": {
+    "C:\\Users\\laura\\source\\repos\\Saisie-de-CRA\\CRA.Models\\CRA.Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\laura\\source\\repos\\Saisie-de-CRA\\app\\app.csproj",
-        "projectName": "app",
-        "projectPath": "C:\\Users\\laura\\source\\repos\\Saisie-de-CRA\\app\\app.csproj",
+        "projectUniqueName": "C:\\Users\\laura\\source\\repos\\Saisie-de-CRA\\CRA.Models\\CRA.Models.csproj",
+        "projectName": "CRA.Models",
+        "projectPath": "C:\\Users\\laura\\source\\repos\\Saisie-de-CRA\\CRA.Models\\CRA.Models.csproj",
         "packagesPath": "C:\\Users\\laura\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\laura\\source\\repos\\Saisie-de-CRA\\app\\obj\\",
+        "outputPath": "C:\\Users\\laura\\source\\repos\\Saisie-de-CRA\\CRA.Models\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -49,22 +49,6 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "dependencies": {
-            "Microsoft.EntityFrameworkCore": {
-              "target": "Package",
-              "version": "[9.0.0, )"
-            },
-            "Microsoft.EntityFrameworkCore.SqlServer": {
-              "target": "Package",
-              "version": "[9.0.0, )"
-            },
-            "Microsoft.EntityFrameworkCore.Tools": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[9.0.0, )"
-            }
-          },
           "imports": [
             "net461",
             "net462",
@@ -77,9 +61,6 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
-            "Microsoft.AspNetCore.App": {
-              "privateAssets": "none"
-            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
