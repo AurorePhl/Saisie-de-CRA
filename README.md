@@ -1,2 +1,4 @@
 # Saisie-de-CRA
-Application ASP.NET de saisie de compte-rendu d'activité (C# et .Net 8)
+
+## Premier pas  
+Suivre le guide de création de la base de données et du projet (cf. guide.txt)
