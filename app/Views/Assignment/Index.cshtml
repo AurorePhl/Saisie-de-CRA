@@ -67,9 +67,9 @@
                 @Html.DisplayFor(modelItem => item.PeriodId)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                @Html.ActionLink("Edit", "Edit", new { code=item.Code }) |
+                @Html.ActionLink("Details", "Details", new { code= item.Code }) |
+                @Html.ActionLink("Delete", "Delete", new { code = item.Code })
             </td>
         </tr>
 }

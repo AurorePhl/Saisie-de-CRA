@@ -1,4 +1,5 @@
 ﻿using CRA.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,19 +21,27 @@ namespace CRA.DataAccess
         }
         public void AddAssignment(Assignment assignment)
         {
-            throw new NotImplementedException();
+            _context.Assignment.Add(assignment); // ajoute un assignment
+            _context.SaveChanges(); // sauvegarde les changements
         }
         public void DeleteAssignment(Guid code)
         {
-            throw new NotImplementedException();
+            var assignment = _context.Assignment.Find(code); // trouve un assignment par son code
+            if (assignment != null)
+            {
+                _context.Assignment.Remove(assignment); // supprime un assignment
+                _context.SaveChanges(); // sauvegarde les changements
+            }
         }
         public Assignment GetAssignmentByCode(Guid code)
         {
-            throw new NotImplementedException();
+            return _context.Assignment.Find(code);
         }
-        public void UpdateAssignment(Assignment assignment)
+        public void UpdateAssignment(Assignment assignment) 
         {
-            throw new NotImplementedException();
+            _context.Entry(assignment).State = EntityState.Modified; //
+            _context.SaveChanges();
         }
+
     }
 }
