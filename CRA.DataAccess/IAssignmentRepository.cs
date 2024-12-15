@@ -16,5 +16,6 @@ namespace CRA.DataAccess
         void DeleteAssignment(Guid code); // supprimer un assignment
         //bool AssignmentExists(Guid code); // vérifier si un assignment existe
         //bool Save(); // sauvegarder les modifications
+        IEnumerable<Assignment> GetByScheduleId(Guid scheduleId);
     }
 }

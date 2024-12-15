@@ -34,5 +34,10 @@ namespace CRA.DataAccess
         {
             throw new NotImplementedException();
         }
+
+        public IEnumerable<Assignment> GetByScheduleId(Guid scheduleId)
+        {
+            return _context.Assignment.Where(a => a.ScheduleId == scheduleId).ToList();
+        }
     }
 }

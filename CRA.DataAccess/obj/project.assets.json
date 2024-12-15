@@ -613,23 +613,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\laura\\.nuget\\packages\\": {},
+    "C:\\Users\\asiph\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\laura\\source\\repos\\Saisie-de-CRA\\CRA.DataAccess\\CRA.DataAccess.csproj",
+      "projectUniqueName": "C:\\Users\\asiph\\source\\repos\\CRA\\CRA.DataAccess\\CRA.DataAccess.csproj",
       "projectName": "CRA.DataAccess",
-      "projectPath": "C:\\Users\\laura\\source\\repos\\Saisie-de-CRA\\CRA.DataAccess\\CRA.DataAccess.csproj",
-      "packagesPath": "C:\\Users\\laura\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\laura\\source\\repos\\Saisie-de-CRA\\CRA.DataAccess\\obj\\",
+      "projectPath": "C:\\Users\\asiph\\source\\repos\\CRA\\CRA.DataAccess\\CRA.DataAccess.csproj",
+      "packagesPath": "C:\\Users\\asiph\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\asiph\\source\\repos\\CRA\\CRA.DataAccess\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\laura\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\asiph\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -645,8 +645,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\laura\\source\\repos\\Saisie-de-CRA\\CRA.Models\\CRA.Models.csproj": {
-              "projectPath": "C:\\Users\\laura\\source\\repos\\Saisie-de-CRA\\CRA.Models\\CRA.Models.csproj"
+            "C:\\Users\\asiph\\source\\repos\\CRA\\CRA.Models\\CRA.Models.csproj": {
+              "projectPath": "C:\\Users\\asiph\\source\\repos\\CRA\\CRA.Models\\CRA.Models.csproj"
             }
           }
         }
@@ -687,7 +687,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

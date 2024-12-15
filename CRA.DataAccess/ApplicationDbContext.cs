@@ -13,6 +13,8 @@ namespace CRA.DataAccess
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) {}
 
         public DbSet<Assignment> Assignment { get; set; }
+        public DbSet<Schedule> Schedule { get; set; }
+        public DbSet<Employee> Employee { get; set; }
 
     }
 }
