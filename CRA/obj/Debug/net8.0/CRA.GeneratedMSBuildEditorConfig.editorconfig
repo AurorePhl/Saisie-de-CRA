@@ -66,6 +66,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZUVtcGxveWVlXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/asiph/source/repos/CRA/CRA/Views/HomeEmployee/Logout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZUVtcGxveWVlXExvZ291dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/asiph/source/repos/CRA/CRA/Views/HomeEmployee/Report.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZUVtcGxveWVlXFJlcG9ydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -76,6 +80,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/asiph/source/repos/CRA/CRA/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/asiph/source/repos/CRA/CRA/Views/Home/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/asiph/source/repos/CRA/CRA/Views/Home/Privacy.cshtml]

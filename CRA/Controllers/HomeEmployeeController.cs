@@ -10,6 +10,7 @@ namespace CRA.Controllers
         private readonly IEmployeeRepository _repository;
         private readonly IScheduleRepository _scheduleRepository;
         private readonly IAssignmentRepository _assignmentRepository;
+        private Guid currentId;
 
         public HomeEmployeeController(IEmployeeRepository repository, IScheduleRepository scheduleRepository, IAssignmentRepository assignmentRepository)
         {
@@ -47,7 +48,13 @@ namespace CRA.Controllers
             if (ModelState.IsValid)
             {
                 _repository.UpdateEmployee(employee);
-                RedirectToAction(nameof(Details), new { id = employee.Id });
+                ViewData["EmployeeId"] = employee.Id;
+                return RedirectToRoute(new
+                {
+                    controller = "HomeEmployee",
+                    action = "Details",
+                    id = employee.Id
+                });
             }
             return View(employee);
         }
@@ -124,6 +131,25 @@ namespace CRA.Controllers
                 return NotFound();
             }
             ViewData["EmployeeId"] = id;
+            return View();
+        }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Logout(Guid id)
+        {
+            ViewData["EmployeeId"] = id;
+            return RedirectToRoute(new
+            {
+                controller = "HomeEmployee",
+                action = "Index",
+                id = id
+            });
+        }
+
+        public IActionResult Logout()
+        {
             return View();
         }
 

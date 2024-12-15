@@ -15,6 +15,6 @@ namespace CRA.DataAccess
         public DbSet<Assignment> Assignment { get; set; }
         public DbSet<Schedule> Schedule { get; set; }
         public DbSet<Employee> Employee { get; set; }
-
+        public DbSet<Admin> Admin { get; set; }
     }
 }

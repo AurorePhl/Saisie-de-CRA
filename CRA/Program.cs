@@ -39,5 +39,15 @@ app.MapControllerRoute(
     name: "",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
+app.MapControllerRoute(
+    name: "EmployeeRoute",
+    pattern: "{controller=HomeEmployee}/{action=Index}/{id?}",
+    new { controller = "HomeEmployee", action = "Index" });
+
+app.MapControllerRoute(
+    name: "AdminRoute",
+    pattern: "{controller=HomeAdmin}/{action=Index}/{id?}",
+    new { controller = "HomeAdmin", action = "Index" });
+
 
 app.Run();
