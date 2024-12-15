@@ -42,6 +42,9 @@ namespace CRA.DataAccess
             _context.Entry(assignment).State = EntityState.Modified; //
             _context.SaveChanges();
         }
-
+        public IEnumerable<Assignment> GetByScheduleId(Guid scheduleId)
+        {
+            return _context.Assignment.Where(a => a.ScheduleId == scheduleId).ToList();
+        }
     }
 }

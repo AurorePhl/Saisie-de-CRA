@@ -12,7 +12,9 @@ namespace CRA.DataAccess
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { } //  constructeur de la classe ApplicationDbContext 
 
-        public DbSet<Assignment> Assignment { get; set; } // DbSet est une collection d'entités qui peuvent être ajoutées, mises à jour et supprimées de la base de données
+        public DbSet<Assignment> Assignment { get; set; }
+        public DbSet<Schedule> Schedule { get; set; }
+        public DbSet<Employee> Employee { get; set; }
 
     }
 }
