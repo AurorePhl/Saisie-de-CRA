@@ -14,7 +14,7 @@
                 <!-- Sélection du mois -->
                 <div class="form-group">
                     <label for="Month" class="control-label">Month</label>
-                    <select id="Month" name="Month" class="form-control  text-center">
+                    <select id="Month" name="Month" class="form-control  text-center" required>
                         <option value="1">January</option>
                         <option value="2">February</option>
                         <option value="3">March</option>
@@ -33,7 +33,7 @@
                 <!-- Sélection de l'année -->
                 <div class="form-group">
                     <label for="Year" class="control-label">Year</label>
-                    <input type="text" id="Year" name="Year" class="form-control  text-center" value="@DateTime.Now.Year" />
+                    <input type="text" id="Year" name="Year" class="form-control  text-center" value="@DateTime.Now.Year" required />
                 </div>
                 <hr />
 

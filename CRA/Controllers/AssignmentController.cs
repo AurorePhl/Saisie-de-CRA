@@ -13,11 +13,11 @@ namespace app.Controllers
         public IActionResult Index()
         {
             IEnumerable<Assignment> assignments = _repository.GetAllAssignments(); // récupérer tous les assignments
-            return View(assignments);
+            return View("/Views/Admin/Assignment/Index.cshtml", assignments);
         }
         public IActionResult Create()
         {
-            return View();
+            return View("/Views/Admin/Assignment/Create.cshtml");
         }
 
         [HttpPost]
@@ -30,7 +30,7 @@ namespace app.Controllers
                 _repository.AddAssignment(assignment); // ajouter un assignment
                 return RedirectToAction(nameof(Index)); // rediriger vers l'index
             }
-            return View(assignment);
+            return View("/Views/Admin/Assignment/Create.cshtml", assignment);
         }
 
         public IActionResult Edit(Guid code) // afficher le formulaire HTML pour modifie un enregistrement dans la base de données
@@ -40,7 +40,7 @@ namespace app.Controllers
             {
                 return NotFound();
             }
-            return View(assignment);
+            return View("/Views/Admin/Assignment/Edit.cshtml", assignment);
         }
 
         [HttpPost]
@@ -52,7 +52,7 @@ namespace app.Controllers
                 _repository.UpdateAssignment(assignment);
                 return RedirectToAction(nameof(Index));
             }
-            return View(assignment);
+            return View("/Views/Admin/Assignment/Edit.cshtml", assignment);
         }
 
         public IActionResult Details(Guid code)
@@ -62,7 +62,7 @@ namespace app.Controllers
             {
                 return NotFound();
             }
-            return View(assignment);
+            return View("/Views/Admin/Assignment/Details.cshtml", assignment);
         }
         public IActionResult Delete(Guid code)
         {
@@ -72,7 +72,7 @@ namespace app.Controllers
             {
                 return NotFound(); // retourne une erreur 404
             }
-            return View(assignment); // retourne la vue de l'assignment
+            return View("/Views/Admin/Assignment/Delete.cshtml", assignment); // retourne la vue de l'assignment
         }
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
