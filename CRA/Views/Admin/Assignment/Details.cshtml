@@ -4,7 +4,11 @@
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
     ViewData["Title"] = "Detail Assignment";
 }
+@{
+    var adminId = ViewData["AdminId"];
+}
 
+<h2>Assignments for Admin: @adminId</h2>
 <h1>Details</h1>
 
 <div>
@@ -63,5 +67,5 @@
 </div>
 <div>
     @Html.ActionLink("Edit", "Edit", new { code = Model.Code }) |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index" asp-route-id="@ViewData["AdminId"]">Back to List</a>
 </div>

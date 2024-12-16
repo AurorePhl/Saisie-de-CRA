@@ -20,11 +20,9 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="HomeAdmin" asp-action="Index" asp-route-id="@ViewData["AdminId"]">Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
+                        
                           @* 
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Assignment" asp-action="Index">Liste Assignements</a>
@@ -33,8 +31,12 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Logout" asp-route-id="@ViewData["AdminId"]">Logout</a>
                         </li>
+                        
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="HomeAdmin" asp-action="Assignments">Assignments</a> 
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Mission" asp-action="Index" asp-route-id="@ViewData["AdminId"]">Missions</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="HomeAdmin" asp-action="Assignments" asp-route-id="@ViewData["AdminId"]">Assignments</a>
                         </li>
                     </ul>
                 </div>

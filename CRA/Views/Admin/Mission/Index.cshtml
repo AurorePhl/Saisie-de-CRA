@@ -8,11 +8,10 @@
     var adminId = ViewData["AdminId"];
 }
 
-<h2>Assignments for Admin: @adminId</h2>
-<h1>Liste des assignements</h1>
+<h1>Liste des missions</h1>
 
 <p>
-    <a asp-action="Create" asp-route-adminId="@adminId" >Create New</a>
+    <a asp-action="Create" asp-route-adminId="@adminId">Create New</a>
 </p>
 <table class="table">
     <thead>
@@ -25,21 +24,6 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IsValidated)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IsAssigned)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ScheduleId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AdminId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PeriodId)
             </th>
             <th></th>
         </tr>
@@ -57,21 +41,7 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Description)
                 </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.IsValidated)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.IsAssigned)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ScheduleId)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.AdminId)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.PeriodId)
-                </td>
+               
                 <td>
                     @Html.ActionLink("Edit", "Edit", new { code = item.Code, adminId = ViewData["AdminId"] }) |
                     @Html.ActionLink("Details", "Details", new { code = item.Code, adminId = ViewData["AdminId"] }) |

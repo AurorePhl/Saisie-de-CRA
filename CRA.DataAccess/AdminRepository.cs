@@ -18,5 +18,9 @@ namespace CRA.DataAccess
         {
             return _context.Admin.ToList();
         }
+        public Admin GetAdminById(Guid id)
+        {
+            return _context.Find<Admin>(id);
+        }
     }
 }

@@ -10,5 +10,7 @@ namespace CRA.DataAccess
     public interface IAdminRepository
     {
         IEnumerable<Admin> GetAllAdmin();
+        Admin GetAdminById(Guid id);
     }
+   
 }

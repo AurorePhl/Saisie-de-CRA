@@ -18,17 +18,12 @@ namespace CRA.Models
 
         public string Description { get; set; }
 
-        [Required]
-        public bool IsValidated { get; set; }
-
-        [Required]
-        public bool IsAssigned { get; set; }
+        public bool? IsValidated { get; set; }
+        public bool? IsAssigned { get; set; }
 
         public Guid? ScheduleId { get; set; }
 
         public Guid? AdminId { get; set; }
-
-        [Required]
-        public Guid PeriodId { get; set; }
+        public Guid? PeriodId { get; set; }
     }
 }
