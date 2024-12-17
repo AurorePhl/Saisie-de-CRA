@@ -61,14 +61,14 @@ CREATE TABLE Assignment (
 -- Table TimeSlot
 CREATE TABLE TimeSlot (
     id UNIQUEIDENTIFIER DEFAULT NEWID() PRIMARY KEY,
-    start DATETIME NOT NULL,
-    [end] DATETIME NOT NULL,
+    start DATETIME2 NOT NULL,
+    [end] DATETIME2 NOT NULL,
     state NVARCHAR(50) NOT NULL,
     assignmentCode UNIQUEIDENTIFIER NOT NULL FOREIGN KEY REFERENCES Assignment(code)
 );
 
 -- Relations
--- 1 Admin embauche plusieurs Employees (relation non spécifiée explicitement ici, peut être traitée via des logs ou une table intermédiaire si nécessaire).
+-- 1 Admin embauche plusieurs Employees (relation non spÃ©cifiÃ©e explicitement ici, peut Ãªtre traitÃ©e via des logs ou une table intermÃ©diaire si nÃ©cessaire).
 -- 1 Schedule contient plusieurs Assignments
 ALTER TABLE Assignment
 ADD FOREIGN KEY (scheduleId) REFERENCES Schedule(id);
@@ -77,5 +77,5 @@ ADD FOREIGN KEY (scheduleId) REFERENCES Schedule(id);
 ALTER TABLE TimeSlot
 ADD FOREIGN KEY (assignmentCode) REFERENCES Assignment(code);
 
--- Validation des règles de contraintes
--- Aucun script additionnel nécessaire pour les relations mentionnées au-dessus.
+-- Validation des rÃ¨gles de contraintes
+-- Aucun script additionnel nÃ©cessaire pour les relations mentionnÃ©es au-dessus.
