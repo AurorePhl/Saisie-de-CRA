@@ -7,14 +7,11 @@
 @{
     var adminId = ViewData["AdminId"];
 }
-
-<h2>Assignments for Admin: @adminId</h2>
-<h1>Details</h1>
-
-<div>
-    <h4>Assignment</h4>
+<div class="text-center">
+    <h1>Details of the assignment</h1>
     <hr />
-    <dl class="row">
+    <div class="row">
+    <div class="col-md-12">
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Code)
         </dt>
@@ -68,4 +65,5 @@
 <div>
     @Html.ActionLink("Edit", "Edit", new { code = Model.Code }) |
     <a asp-action="Index" asp-route-id="@ViewData["AdminId"]">Back to List</a>
+</div>
 </div>

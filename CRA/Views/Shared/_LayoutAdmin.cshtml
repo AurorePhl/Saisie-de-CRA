@@ -23,16 +23,6 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="HomeAdmin" asp-action="Index" asp-route-id="@ViewData["AdminId"]">Home</a>
                         </li>
-                        
-                          @* 
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Assignment" asp-action="Index">Liste Assignements</a>
-                        </li>
-                        *@
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Logout" asp-route-id="@ViewData["AdminId"]">Logout</a>
-                        </li>
-                        
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Mission" asp-action="Index" asp-route-id="@ViewData["AdminId"]">Missions</a>
                         </li>
@@ -40,7 +30,10 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="HomeAdmin" asp-action="Assignments" asp-route-id="@ViewData["AdminId"]">Assignments</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Schedule" asp-action="Index" asp-route-id="@ViewData["AdminId"]">Schedule</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Schedule" asp-action="Index" asp-route-id="@ViewData["AdminId"]">Employee slots </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Logout" asp-route-id="@ViewData["AdminId"]">Logout</a>
                         </li>
                     </ul>
                 </div>
@@ -54,9 +47,6 @@
     </div>
 
     <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2024 - CRA - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

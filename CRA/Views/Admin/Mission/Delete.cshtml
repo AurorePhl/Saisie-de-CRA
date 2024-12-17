@@ -4,12 +4,10 @@
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
     ViewData["Title"] = "Suppression Assignement";
 }
+<div class="text-center">
 
-<h1>Suppression</h1>
-
-<h3>Voulez vous vraiment supprimer ceci ?</h3>
+<h3>Do you want to delete this ?</h3>
 <div>
-    <h4>Assignment</h4>
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
@@ -36,4 +34,5 @@
         <input type="submit" value="Delete" class="btn btn-danger" asp-route-adminId="@ViewData["AdminId"]" /> |
         <a asp-action="Index" asp-route-id="@ViewData["AdminId"]">Back to List</a>
     </form>
+</div>
 </div>

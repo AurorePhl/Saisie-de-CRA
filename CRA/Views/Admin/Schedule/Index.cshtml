@@ -1,17 +1,16 @@
 ﻿@model IEnumerable<CRA.DataAccess.SentTimeSlotViewModel>
 @{
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
-    ViewData["Title"] = "Liste Assignements";
 }
 @{
-    ViewData["Title"] = "Liste des TimeSlots";
+    ViewData["Title"] = "List of TimeSlots";
 }
 
 <h1>@ViewData["Title"]</h1>
-
+<div class="text-center">
 <form asp-action="Index" method="get">
     <div class="form-group">
-        <input type="text" name="searchString" value="@ViewData["SearchString"]" class="form-control" placeholder="Rechercher par Username" />
+        <input type="text" name="searchString" value="@ViewData["SearchString"]" class="form-control" placeholder="Search by Username" />
         <input type="hidden" name="id" value="@ViewData["AdminId"]" />
         <button type="submit" class="btn btn-primary">Rechercher</button>
     </div>
@@ -68,14 +67,12 @@
                     @(item.State == "SENT" ? "RECEIVED" : item.State)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { idTimeSlot = item.Id, adminId = ViewData["AdminId"] }) |
-                    @Html.ActionLink("Details", "Details", new { idTimeSlot = item.Id, adminId = ViewData["AdminId"] }) |
-                    @Html.ActionLink("Delete", "Delete", new { idTimeSlot = item.Id, adminId = ViewData["AdminId"] })
+                    @Html.ActionLink("Edit", "Edit", new { idTimeSlot = item.Id, adminId = ViewData["AdminId"] }) 
                 </td>
             </tr>
         }
     </tbody>
 </table>
 
-                    
+</div>                    
 

@@ -22,11 +22,16 @@ namespace app.Controllers
             _repositoryPeriod = repositoryPeriod;
             _context = context;
         }
-        public IActionResult Index(Guid id)
+        public IActionResult Index(Guid id, string searchString)
         {
             // Récupérer les assignments avec leurs détails (Username, Dates, etc.)
             var assignments = _repository.GetAllAssignmentsWithDetails();
             // Retourner les données à la vue
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                assignments = assignments.Where(t => t.Libelle.Contains(searchString, StringComparison.OrdinalIgnoreCase));
+            }
+
             ViewData["AdminId"] = id;
             return View("/Views/Admin/Assignment/Index.cshtml", assignments);
         }

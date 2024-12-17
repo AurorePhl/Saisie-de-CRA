@@ -7,11 +7,12 @@
 @{
     var adminId = ViewData["AdminId"];
 }
+<div class="text-center">
 
-<h1>Liste des missions</h1>
+<h1>List of missions</h1>
 
 <p>
-    <a asp-action="Create" asp-route-adminId="@adminId">Create New</a>
+    <a asp-action="Create" asp-route-adminId="@adminId">Create New Mission</a>
 </p>
 <table class="table">
     <thead>
@@ -51,3 +52,4 @@
         }
     </tbody>
 </table>
+</div>

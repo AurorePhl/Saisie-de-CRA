@@ -5,48 +5,38 @@
     ViewData["Title"] = "Créer Assignement";
 }
 
-<h1>Créer une assignation</h1>
-
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
+    <div class="text-center">
+        <h1>Create Assignment</h1>
+        <hr />
+        <div class="row">
+            <div class="col-md-12">
+            <form asp-action="Create" class="form-inline">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
-            <!-- Libelle -->
             <div class="form-group">
                 <label for="Libelle" class="control-label">Libellé</label>
                 <input name="Libelle" class="form-control" />
             </div>
 
-            <!-- Description -->
             <div class="form-group">
                 <label for="Description" class="control-label">Description</label>
                 <input name="Description" class="form-control" />
             </div>
-
-            <!-- Username de l'employee -->
             <div class="form-group">
                 <label for="Username" class="control-label">Nom d'utilisateur de l'employé</label>
                 <select name="Username" class="form-control" asp-items="ViewBag.EmployeeUsernames">
                     <option value="">-- Sélectionnez un employé --</option>
                 </select>
             </div>
-
-
-            <!-- Start Date -->
             <div class="form-group">
                 <label for="Start" class="control-label">Date de début</label>
                 <input type="date" name="Start" class="form-control" />
             </div>
 
-            <!-- End Date -->
             <div class="form-group">
                 <label for="End" class="control-label">Date de fin</label>
                 <input type="date" name="End" class="form-control" />
             </div>
 
-            <!-- Bouton de soumission -->
             <div class="form-group">
                 <input type="submit" value="Créer" class="btn btn-primary" asp-route-adminId="@ViewData["AdminId"]" />
             </div>
@@ -55,9 +45,9 @@
 </div>
 
 <div>
-    <a asp-action="Index" asp-route-id="@ViewData["AdminId"]">Retourner à la liste</a>
+    <a asp-action="Index" asp-route-id="@ViewData["AdminId"]">Back to the list of assignments</a>
 </div>
-
+</div>
 @section Scripts {
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
