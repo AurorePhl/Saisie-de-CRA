@@ -21,4 +21,8 @@
     <ProjectReference Include="..\CRA.Models\CRA.Models.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Models\ViewModels\" />
+  </ItemGroup>
+
 </Project>

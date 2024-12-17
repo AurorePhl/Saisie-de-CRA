@@ -17,5 +17,8 @@ namespace CRA.DataAccess
         //bool AssignmentExists(Guid code); // vérifier si un assignment existe
         //bool Save(); // sauvegarder les modifications
         IEnumerable<Assignment> GetByScheduleId(Guid scheduleId);
+        IEnumerable<AssignmentViewModel> GetAllAssignmentsWithDetails();
+
+
     }
 }

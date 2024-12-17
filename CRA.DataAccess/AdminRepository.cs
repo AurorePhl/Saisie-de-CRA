@@ -14,7 +14,7 @@ namespace CRA.DataAccess
         {
             _context = context;
         }
-        public IEnumerable<Admin> GetAllAdmin()
+        public IEnumerable<Admin> GetAllAdmins()
         {
             return _context.Admin.ToList();
         }

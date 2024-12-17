@@ -56,7 +56,7 @@ namespace CRA.Controllers
 
             // Récupérer la liste des employés et des administrateurs
             IEnumerable<Employee> employees = _employeeRepository.GetAllEmployees();
-            IEnumerable<Admin> admins = _adminRepository.GetAllAdmin();
+            IEnumerable<Admin> admins = _adminRepository.GetAllAdmins();
 
             // Vérification dans la liste des employés
             var employee = employees.FirstOrDefault(e => e.Username == model.Username && e.Password == model.Password);

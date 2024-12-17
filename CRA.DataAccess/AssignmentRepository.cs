@@ -5,6 +5,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CRA.DataAccess;
+
+
 
 namespace CRA.DataAccess
 {
@@ -46,5 +49,26 @@ namespace CRA.DataAccess
         {
             return _context.Assignment.Where(a => a.ScheduleId == scheduleId).ToList();
         }
+
+        public IEnumerable<AssignmentViewModel> GetAllAssignmentsWithDetails()
+        {
+            var query = from assignment in _context.Assignment
+                        join period in _context.Set<Period>() on assignment.PeriodId equals period.Id into periods
+                        from period in periods.DefaultIfEmpty()
+                        join schedule in _context.Set<Schedule>() on assignment.ScheduleId equals schedule.Id into schedules
+                        from schedule in schedules.DefaultIfEmpty()
+                        join employee in _context.Set<Employee>() on schedule.EmployeeId equals employee.Id into employees
+                        from employee in employees.DefaultIfEmpty()
+                        select new AssignmentViewModel
+                        { 
+                            Libelle = assignment.Libelle,
+                            Username = employee != null ? employee.Username : "N/A",
+                            Start = period != null ? period.Start : (DateTime?)null,
+                            End = period != null ? period.End : (DateTime?)null
+                        };
+
+            return query.ToList();
+        }
     }
 }
+
