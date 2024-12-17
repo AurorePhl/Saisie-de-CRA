@@ -19,13 +19,6 @@ namespace app.Controllers
             ViewData["AdminId"] = id;
             return View("/Views/Admin/Mission/Index.cshtml", assignments);
         }
-        //public IActionResult Missions(Guid id)
-        //{
-        //    IEnumerable<Assignment> assignments = _repository.GetAllAssignments(); // récupérer tous les assignments
-        //                                                                           //  var assignmentMissions = assignments.Select(a => new { a.Libelle, a.Description }).ToList(); // sélectionner les missions
-        //    ViewData["AdminId"] = id;
-        //    return View("/Views/Admin/Assignment/Missions.cshtml", assignments);
-        //}
 
         public IActionResult Create(Guid adminId)
         {

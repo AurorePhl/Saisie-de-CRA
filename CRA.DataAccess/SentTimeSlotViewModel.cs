@@ -9,6 +9,7 @@ namespace CRA.DataAccess
    
     public class SentTimeSlotViewModel
     {
+        public Guid Id { get; set; }
         public DateTime Start { get; set; }
         public DateTime End { get; set; }
         public string State { get; set; }

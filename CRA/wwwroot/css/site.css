@@ -20,3 +20,17 @@ html {
 body {
   margin-bottom: 60px;
 }
+.validated {
+    background-color: #d4edda; 
+    color: #155724; 
+}
+
+.rejected {
+    background-color: #f8d7da; 
+    color: #721c24; 
+}
+
+.sent {
+    background-color: #fff9c4;
+    color: #856404; 
+}

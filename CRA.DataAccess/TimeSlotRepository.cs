@@ -27,6 +27,7 @@ namespace CRA.DataAccess
                         where timeSlot.State == "sent" || timeSlot.State == "validated" || timeSlot.State == "rejected"
                         select new SentTimeSlotViewModel
                         {
+                            Id = timeSlot.Id,
                             Start = timeSlot.Start,
                             End = timeSlot.End,
                             State = timeSlot.State,
@@ -37,7 +38,16 @@ namespace CRA.DataAccess
                         };
 
             return query.ToList();
-
         }
+        public TimeSlot GetTimeSlotById(Guid timeslot)
+        {
+            return _context.TimeSlot.Find(timeslot);
+        }
+        public void UpdateTimeSlot(TimeSlot timeslot)
+        {
+            _context.Entry(timeslot).State = EntityState.Modified; //
+            _context.SaveChanges();
+        }
+
     }
 }

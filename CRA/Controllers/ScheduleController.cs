@@ -1,4 +1,5 @@
 ﻿using CRA.DataAccess;
+using CRA.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -29,13 +30,55 @@ namespace CRA.Controllers
             _repositoryTimeSlot = repositoryTimeSlot;
         }
 
-        public IActionResult Index(Guid id)
+        public IActionResult Index(Guid id, string searchString)
         {
+
             // Récupérer les assignments avec leurs détails (Username, Dates, etc.)
-            var timeslot = _repositoryTimeSlot.SentTimeSlots();
+            var timeslots = _repositoryTimeSlot.SentTimeSlots();
+
+            // Filtrer les résultats en fonction du Username
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                timeslots = timeslots.Where(t => t.Username.Contains(searchString, StringComparison.OrdinalIgnoreCase));
+            }
+
+            // Trier les résultats pour afficher les états "sent" en premier
+            var sortedTimeslots = timeslots
+                .OrderByDescending(t => t.State == "SENT")
+                .ThenBy(t => t.State)
+                .ToList();
+
             // Retourner les données à la vue
             ViewData["AdminId"] = id;
-            return View("/Views/Admin/Schedule/Index.cshtml", timeslot);
+            ViewData["SearchString"] = searchString;
+            return View("/Views/Admin/Schedule/Index.cshtml", sortedTimeslots);
+        }
+        public IActionResult Edit(Guid idTimeSlot, Guid adminId) // afficher le formulaire HTML pour modifie un enregistrement dans la base de données
+        {
+            var timeslot = _repositoryTimeSlot.GetTimeSlotById(idTimeSlot);
+            if (timeslot == null)
+            {
+                return NotFound();
+            }
+            ViewData["AdminId"] = adminId;
+            return View("/Views/Admin/Schedule/Edit.cshtml", timeslot);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Edit(TimeSlot timeslot, Guid adminId) // appelée lorsque le formulaire HTML de modification d'une course est posté sur le serveur
+        {
+            if (ModelState.IsValid)
+            {
+                _repositoryTimeSlot.UpdateTimeSlot(timeslot);
+                return RedirectToRoute(new
+                {
+                    controller = "Schedule",
+                    action = "Index",
+                    id = adminId
+                });
+            }
+            ViewData["AdminId"] = adminId;
+            return View("/Views/Admin/Mission/Edit.cshtml", timeslot);
         }
 
     }
