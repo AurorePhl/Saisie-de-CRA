@@ -10,6 +10,7 @@ namespace CRA.DataAccess
 {
     public class ApplicationDbContext : DbContext
     {
+
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { } //  constructeur de la classe ApplicationDbContext 
 
         public DbSet<Assignment> Assignment { get; set; }
@@ -17,5 +18,6 @@ namespace CRA.DataAccess
         public DbSet<Employee> Employee { get; set; }
         public DbSet<Admin> Admin { get; set; }
         public DbSet<Period> Period { get; set; }
+        public DbSet<TimeSlot> TimeSlot { get; set; }
     }
 }

@@ -32,5 +32,6 @@ namespace CRA.Models
 
         [Required]
         public bool Role { get; set; }
+
     }
 }

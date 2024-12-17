@@ -60,9 +60,11 @@ namespace CRA.DataAccess
                         join employee in _context.Set<Employee>() on schedule.EmployeeId equals employee.Id into employees
                         from employee in employees.DefaultIfEmpty()
                         select new AssignmentViewModel
-                        { 
+                        {
+                            Code = assignment.Code,
                             Libelle = assignment.Libelle,
-                            Username = employee != null ? employee.Username : "N/A",
+                            Description = assignment.Description,
+                            Username = employee != null ? employee.Username : "no assignment",
                             Start = period != null ? period.Start : (DateTime?)null,
                             End = period != null ? period.End : (DateTime?)null
                         };

@@ -1,21 +1,25 @@
 ﻿@model IEnumerable<CRA.DataAccess.AssignmentViewModel>
 
-
 @{
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
     ViewData["Title"] = "Liste des Assignements";
 }
-
+@{
+    var adminId = ViewData["AdminId"];
+}
 <h1>Liste des Assignements</h1>
-
+<p>
+    <a asp-action="Create" asp-route-adminId="@adminId">Create New</a>
+</p>
 <table class="table">
     <thead>
         <tr>
             <th>Code</th>
-            <th>Libellé</th>
-            <th>Utilisateur</th>
-            <th>Début</th>
-            <th>Fin</th>
+            <th>Libelle</th>
+            <th>Description</th>
+            <th>Employee</th>
+            <th>Start Period</th>
+            <th>End Period</th>
         </tr>
     </thead>
     <tbody>
@@ -24,9 +28,15 @@
             <tr>
                 <td>@assignment.Code</td>
                 <td>@assignment.Libelle</td>
-                <td>@assignment.Username</td>
+                <td>@assignment.Description</td>
+                <td>@assignment.Username?</td>
                 <td>@assignment.Start?.ToString("yyyy-MM-dd")</td>
                 <td>@assignment.End?.ToString("yyyy-MM-dd")</td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { code = assignment.Code, adminId = ViewData["AdminId"] }) |
+                    @Html.ActionLink("Details", "Details", new { code = assignment.Code, adminId = ViewData["AdminId"] }) |
+                    @Html.ActionLink("Delete", "Delete", new { code = assignment.Code, adminId = ViewData["AdminId"] })
+                </td>
             </tr>
         }
     </tbody>

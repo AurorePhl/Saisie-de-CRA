@@ -8,5 +8,6 @@ namespace CRA.DataAccess
 {
     public interface ITimeSlotRepository
     {
+        IEnumerable<SentTimeSlotViewModel> SentTimeSlots();
     }
 }

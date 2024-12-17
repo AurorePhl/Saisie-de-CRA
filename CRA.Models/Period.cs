@@ -17,5 +17,6 @@ namespace CRA.Models
 
         [Required]
         public DateTime End { get; set; }
+
     }
 }

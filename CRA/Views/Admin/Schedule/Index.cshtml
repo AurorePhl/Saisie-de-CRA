@@ -1,0 +1,39 @@
+﻿@model IEnumerable<CRA.DataAccess.SentTimeSlotViewModel>
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewData["Title"] = "Liste Assignements";
+}
+@{
+    var adminId = ViewData["AdminId"];
+}
+
+
+<h2>Liste des TimeSlots envoyés</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Start</th>
+            <th>End</th>
+            <th>State</th>
+            <th>Assignment Code</th>
+            <th>Libelle</th>
+            <th>Description</th>
+            <th>Username</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Start</td>
+                <td>@item.End</td>
+                <td>@item.State</td>
+                <td>@item.AssignmentCode</td>
+                <td>@item.Libelle</td>
+                <td>@item.Description</td>
+                <td>@item.Username</td>
+            </tr>
+        }
+    </tbody>
+</table>

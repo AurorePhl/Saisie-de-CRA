@@ -23,5 +23,6 @@ namespace CRA.Models
 
         [Required]
         public Guid EmployeeId { get; set; }
+
     }
 }

@@ -25,5 +25,8 @@ namespace CRA.Models
 
         public Guid? AdminId { get; set; }
         public Guid? PeriodId { get; set; }
+        //public Period Period { get; set; }
+        
+
     }
 }
