@@ -10,5 +10,6 @@ namespace CRA.DataAccess
     public interface IPeriodRepository
     {
         IEnumerable<Period> GetAllPeriods();
+
     }
 }

@@ -3,6 +3,7 @@ using CRA.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using System.Text;
 
 namespace app.Controllers
 {
@@ -108,6 +109,123 @@ namespace app.Controllers
             }
         }
 
+        public IActionResult Edit(Guid code, Guid adminId)
+        {
+            var assignment = _repository.GetAssignmentByCode(code);
+            if (assignment == null)
+            {
+                return NotFound();
+            }
+
+            var employees = _context.Employee
+                                    .Select(e => new { e.Username })
+                                    .ToList();
+
+            ViewBag.EmployeeUsernames = new SelectList(employees, "Username", "Username");
+            ViewData["AdminId"] = adminId;
+
+            var schedule = _context.Schedule.FirstOrDefault(s => s.Id == assignment.ScheduleId);
+            var employee = schedule != null ? _context.Employee.FirstOrDefault(e => e.Id == schedule.EmployeeId) : null;
+            var period = _context.Period.FirstOrDefault(p => p.Id == assignment.PeriodId);
+
+            var assignmentViewModel = new AssignmentViewModel
+            {
+                Code = assignment.Code,
+                Libelle = assignment.Libelle,
+                Description = assignment.Description,
+                Username = employee?.Username,
+                Start = period?.Start,
+                End = period?.End
+            };
+
+            return View("/Views/Admin/Assignment/Edit.cshtml", assignmentViewModel);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Edit(AssignmentViewModel model, Guid adminId)
+        {
+            if (!ModelState.IsValid)
+            {
+                // Re-populate the ViewBag and ViewData if there are validation errors
+                var employees = _context.Employee
+                                        .Select(e => new { e.Username })
+                                        .ToList();
+                ViewBag.EmployeeUsernames = new SelectList(employees, "Username", "Username");
+
+                ViewData["AdminId"] = adminId;
+
+                return View("/Views/Admin/Assignment/Edit.cshtml", model);
+            }
+
+            try
+            {
+                var assignment = _repository.GetAssignmentByCode(model.Code);
+                if (assignment == null)
+                {
+                    return NotFound();
+                }
+
+                var employee = _context.Employee.FirstOrDefault(e => e.Username == model.Username);
+                if (employee == null)
+                {
+
+                    ModelState.AddModelError("", "L'employé avec le nom d'utilisateur spécifié n'existe pas.");
+                    ViewData["AdminId"] = adminId;
+                    return View("/Views/Admin/Assignment/Edit.cshtml", model);
+                }
+
+                var schedule = _context.Schedule.FirstOrDefault(s => s.EmployeeId == employee.Id);
+                if (schedule == null)
+                {
+                    ModelState.AddModelError("", "Aucun schedule n'est associé à cet employé.");
+                    ViewData["AdminId"] = adminId;
+                    return View("/Views/Admin/Assignment/Edit.cshtml", model);
+                }
+
+                var period = _context.Period.FirstOrDefault(p => p.Id == assignment.PeriodId);
+                if (period == null)
+                {
+                    period = new Period
+                    {
+                        Start = model.Start.Value,
+                        End = model.End.Value
+                    };
+                    _context.Period.Add(period);
+                    _context.SaveChanges();
+                    assignment.PeriodId = period.Id;
+                }
+                else
+                {
+                    period.Start = model.Start.Value;
+                    period.End = model.End.Value;
+                    _context.Period.Update(period);
+                }
+
+                assignment.Libelle = model.Libelle;
+                assignment.Description = model.Description;
+                assignment.ScheduleId = schedule.Id;
+
+                _repository.UpdateAssignment(assignment);
+                _context.SaveChanges();
+
+                return RedirectToAction("Index", new { id = adminId });
+            }
+            catch (Exception ex)
+            {
+                var innerException = ex.InnerException;
+                var errorMessage = new StringBuilder();
+                errorMessage.AppendLine("Une erreur s'est produite lors de la mise à jour de l'assignation : " + ex.Message);
+                while (innerException != null)
+                {
+                    errorMessage.AppendLine(innerException.Message);
+                    innerException = innerException.InnerException;
+                }
+                ModelState.AddModelError("", errorMessage.ToString());
+                ViewData["AdminId"] = adminId;
+                return View("/Views/Admin/Assignment/Edit.cshtml", model);
+            }
+        }
         //public IActionResult Edit(Guid code, Guid adminId) // afficher le formulaire HTML pour modifie un enregistrement dans la base de données
         //{
         //    var assignment = _repository.GetAssignmentByCode(code);
