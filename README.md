@@ -6,7 +6,8 @@ Guide création de la base de données :
 - Ouvrir de Microsoft SQL Server Management Studio
 - Clic droit sur "Databases" -> New Database 
 - Rentrer dans le champ de texte de "Database name" : "cra"
-- Faire une nouvelle requête pour créer les différentes tables de la base de données (cf. query-creation-tables.txt). 
+- Faire une nouvelle requête pour créer les différentes tables de la base de données (cf. CreateDataBase).
+- - Faire une nouvelle requête pour insérer les données (cf. InsertData). 
 - Ajouter des données fictives aux tables (cf. query-insert-data.txt). 
 
 ## Lancement : 
