@@ -1,0 +1,42 @@
+﻿@model CRA.Models.ReportViewModel
+
+@{
+    Layout = "~/Views/Shared/_LayoutEmployee.cshtml";
+    ViewData["Title"] = "Activity Report";
+}
+
+
+
+
+<div class="text-center">
+    <button onclick="window.print()" class="btn btn-secondary hide-on-print">Imprimer</button>
+    <br />
+    <h1>Compte-rendu d'activité</h1>
+    <h3>@Model.Month @Model.Year</h3>
+    <h4>@Model.EmployeeName</h4>
+</div>
+
+<hr />
+
+<div>
+    <h3>Liste des missions</h3>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Libellé</th>
+                <th>Description</th>
+                <th>Nombre total de jours</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var assignment in Model.Assignments)
+            {
+                <tr>
+                    <td>@assignment.Libelle</td>
+                    <td>@assignment.Description</td>
+                    <td>@assignment.TotalWorkedDays.ToString()</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

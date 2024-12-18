@@ -1,0 +1,55 @@
+﻿@model CRA.Models.ReportViewModel
+
+@{
+    Layout = "~/Views/Shared/_LayoutEmployee.cshtml";
+    ViewData["Title"] = "Report";
+}
+
+<div class="text-center">
+    <h1>Générer un compte-rendu d'activité</h1>
+    <p>Veuillez sélectionner le mois et la date pour lesquels vous souhaitez obtenir votre compte-rendu d'activité.</p>
+    <hr />
+    <div class="row">
+        <div class="col-md-12">
+            <form asp-action="Generate">
+                <input type="hidden" name="id" value="@ViewData["EmployeeId"]" />
+                <!-- Sélection du mois -->
+                <div class="form-group">
+                    <label for="Month" class="control-label">Mois</label>
+                    <select id="Month" name="Month" class="form-control  text-center" required>
+                        <option value="1">Janvier</option>
+                        <option value="2">Février</option>
+                        <option value="3">Mars</option>
+                        <option value="4">Avril</option>
+                        <option value="5">Mai</option>
+                        <option value="6">Juin</option>
+                        <option value="7">Juillet</option>
+                        <option value="8">Août</option>
+                        <option value="9">Septembre</option>
+                        <option value="10">Octobre</option>
+                        <option value="11">Novembre</option>
+                        <option value="12">Décembre</option>
+                    </select>
+                </div>
+
+                <!-- Sélection de l'année -->
+                <div class="form-group">
+                    <label for="Year" class="control-label">Année</label>
+                    <input type="text" id="Year" name="Year" class="form-control  text-center" value="@DateTime.Now.Year" required />
+                </div>
+                <hr />
+
+                <!-- Bouton de soumission -->
+                <div class="form-group">
+                    <input type="submit" value="Générer" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

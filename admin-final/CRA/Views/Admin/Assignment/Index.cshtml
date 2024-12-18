@@ -1,0 +1,51 @@
+﻿@model IEnumerable<CRA.DataAccess.AssignmentViewModel>
+
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewData["Title"] = "Liste des Assignements";
+}
+@{
+    var adminId = ViewData["AdminId"];
+}
+<div class="text-center">
+<h1>List of assignments</h1>
+<p>
+    <a asp-action="Create" asp-route-adminId="@adminId">Create New Assignment</a>
+</p>
+
+    <form asp-action="Index" method="get">
+        <div class="form-group">
+            <input type="text" name="searchString" value="@ViewData["SearchString"]" class="form-control" placeholder="Search by Libelle" />
+            <input type="hidden" name="id" value="@ViewData["AdminId"]" />
+            <button type="submit" class="btn btn-primary">Rechercher</button>
+        </div>
+    </form>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Libelle</th>
+            <th>Description</th>
+            <th>Employee</th>
+            <th>Start Period</th>
+            <th>End Period</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var assignment in Model)
+        {
+            <tr>
+                <td>@assignment.Libelle</td>
+                <td>@assignment.Description</td>
+                <td>@assignment.Username?</td>
+                <td>@assignment.Start?.ToString("yyyy-MM-dd")</td>
+                <td>@assignment.End?.ToString("yyyy-MM-dd")</td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { code = assignment.Code, adminId = ViewData["AdminId"] }) |
+                    @Html.ActionLink("Details", "Details", new { code = assignment.Code, adminId = ViewData["AdminId"] }) |
+                    @Html.ActionLink("Delete", "Delete", new { code = assignment.Code, adminId = ViewData["AdminId"] })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+</div>

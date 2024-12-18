@@ -1,0 +1,40 @@
+﻿@model CRA.Models.Assignment
+
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewData["Title"] = "Create Mission";
+}
+<div class="text-center">
+    <h1>Create New Mission</h1>
+    <hr />
+    <div class="row">
+        <div class="col-md-12">
+        <form asp-action="Create" class="form-inline">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Libelle" class="control-label"></label>
+                <input asp-for="Libelle" class="form-control" />
+                <span asp-validation-for="Libelle" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" asp-route-adminId="@ViewData["AdminId"]" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" asp-route-id="@ViewData["AdminId"]">back to the list of missions</a>
+</div>
+</div>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
