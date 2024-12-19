@@ -1,0 +1,42 @@
+﻿@model CRA.Models.Assignment
+
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewData["Title"] = "Detail Assignment";
+}
+@{
+    var adminId = ViewData["AdminId"];
+}
+<div class="text-center">
+    <h1>Details d'une mission</h1>
+    <hr />
+    <div class="row">
+        <div class="col-md-12">
+
+            <dl class="row">
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Code)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Code)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Libelle)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Libelle)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Description)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Description)
+                </dd>
+            </dl>
+        </div>
+    </div>
+<div>
+    @Html.ActionLink("Edit", "Edit", new { code = Model.Code, adminId = ViewData["AdminId"] }) |
+    <a asp-action="Index" asp-route-id="@ViewData["AdminId"]">Retour</a>
+</div>
+</div>

@@ -1,0 +1,78 @@
+﻿@model IEnumerable<CRA.DataAccess.SentTimeSlotViewModel>
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+@{
+    ViewData["Title"] = "List of TimeSlots";
+}
+
+<h1>@ViewData["Title"]</h1>
+<div class="text-center">
+<form asp-action="Index" method="get">
+    <div class="form-group">
+        <input type="text" name="searchString" value="@ViewData["SearchString"]" class="form-control" placeholder="Rercher par nom d'utilisateur" />
+        <input type="hidden" name="id" value="@ViewData["AdminId"]" />
+        <button type="submit" class="btn btn-primary">Rechercher</button>
+    </div>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Début du créneau horaire
+            </th>
+            <th>
+                Fin du créneau horaire
+            </th>
+           
+            <th>
+                Libellé de la mission
+            </th>
+            <th>
+                Nom d'utilisateur du salarié
+            </th>
+            <th>
+                Êtat du créneau horaire
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            var rowClass = item.State switch
+            {
+                "VALIDATED" => "Validé",
+                "REJECTED" => "Rejeté",
+                "SENT" => "Envoyé",
+                _ => ""
+            };
+
+            <tr class="@rowClass">
+                <td>
+                    @Html.DisplayFor(modelItem => item.Start)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.End)
+                </td>
+                
+                <td>
+                    @Html.DisplayFor(modelItem => item.Libelle)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Username)
+                </td>
+                <td>
+                    @(item.State == "SENT" ? "RECEIVED" : item.State)
+                </td>
+                <td>
+                    @Html.ActionLink("Editer", "Edit", new { idTimeSlot = item.Id, adminId = ViewData["AdminId"] }) 
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+</div>                    
+

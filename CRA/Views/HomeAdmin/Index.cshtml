@@ -1,0 +1,18 @@
+﻿@model CRA.Models.Admin
+
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewData["Title"] = "Index";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Bonjour @Html.DisplayFor(model => model.Name) @Html.DisplayFor(model => model.Surname)</h1>
+    <hr/>
+</div>
+<div style="text-align:left;">
+    <p>
+        Vous trouverez la liste des affectations des salariés aux missions sur la page dédiée aux affectations.
+        La gestion des affectations et des missions est accessible depuis leurs pages respectives.
+        Enfin, vous pouvez consulter les créneaux horaires soumis par les salariés et modifier leur état en les validant ou en les rejetant.
+    </p>
+</div>

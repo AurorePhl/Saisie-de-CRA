@@ -1,0 +1,55 @@
+﻿@model CRA.Models.Assignment
+
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewData["Title"] = "Créer Assignement";
+}
+
+    <div class="text-center">
+        <h1>Créer une novelle affectation</h1>
+        <hr />
+        <div class="row">
+            <div class="col-md-12">
+            <form asp-action="Create" class="form-inline">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label for="Libelle" class="control-label">Libellé de la mission</label>
+                <input name="Libelle" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <label for="Description" class="control-label">Description de la mission</label>
+                <input name="Description" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="Username" class="control-label">Nom d'utilisateur du salarié</label>
+                <select name="Username" class="form-control" asp-items="ViewBag.EmployeeUsernames">
+                    <option value="">-- Sélectionner un salarié --</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="Start" class="control-label">Date de début de la mission</label>
+                <input type="date" name="Start" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <label for="End" class="control-label">Date de fin de la mission</label>
+                <input type="date" name="End" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Créer" class="btn btn-primary" asp-route-adminId="@ViewData["AdminId"]" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" asp-route-id="@ViewData["AdminId"]">Back to the list of assignments</a>
+</div>
+</div>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -1,0 +1,55 @@
+﻿@model IEnumerable<CRA.Models.Assignment>
+
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewData["Title"] = "Liste Assignements";
+}
+@{
+    var adminId = ViewData["AdminId"];
+}
+<div class="text-center">
+
+<h1>Liste des missions</h1>
+
+<p>
+    <a asp-action="Create" asp-route-adminId="@ViewData["AdminId"]">Créer une nouvelle mission</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Code)
+            </th>
+            <th>
+                Libellé
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Code)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Libelle)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+               
+                <td>
+                    @Html.ActionLink("Editer", "Edit", new { code = item.Code, adminId = ViewData["AdminId"] }) |
+                    @Html.ActionLink("Details", "Details", new { code = item.Code, adminId = ViewData["AdminId"] }) |
+                    @Html.ActionLink("Supprimer", "Delete", new { code = item.Code, adminId = ViewData["AdminId"] })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+</div>

@@ -1,0 +1,32 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewData["Title"] = "Logout";
+}
+
+<div class="text-center">
+    <h1>Déconnexion</h1>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="Logout">
+            <div class="form-group">
+                    <label class="control-label">Êtes-vous sûr de vouloir vous déconnecter ?</label>
+            </div>
+                <hr />
+            <div class="form-group">
+                <input type="submit" value="Non" class="btn btn-danger btn-danger" />
+                <a asp-area="" asp-controller="" asp-action="Index" class="btn btn-success">Oui</a>
+                
+            </div>
+        </form>
+    </div>
+</div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+

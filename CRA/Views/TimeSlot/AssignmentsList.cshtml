@@ -1,0 +1,42 @@
+﻿@model IEnumerable<CRA.Models.Assignment>
+
+@{
+    ViewData["Title"] = "AssignmentsList";
+}
+
+<h1>AssignmentsList</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Code)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Libelle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Code)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Libelle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                    <a asp-action="AssignmentsDetails" asp-route-code="@item.Code">Details</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
