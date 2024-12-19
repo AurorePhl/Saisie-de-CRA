@@ -1,6 +1,6 @@
 -- Insertion de donn es dans la table Employee
 INSERT INTO Employee (name, surname, username, password, isConnected, role) VALUES
-('John', 'Doe', 'johndoe', 'Password123!', 0, 1),
+('John', 'Doe', 'johndoe', 'Password123!', 0, 0),
 ('Jane', 'Smith', 'janesmith', 'SecurePass1!', 0, 0);
 
 -- Insertion de donn es dans la table Period
