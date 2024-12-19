@@ -10,7 +10,6 @@ Guide création de la base de données :
 - Rentrer dans le champ de texte de "Database name" : "cra"
 - Faire une nouvelle requête pour créer les différentes tables de la base de données (cf. CreateDataBase).
 - - Faire une nouvelle requête pour insérer les données (cf. InsertData). 
-- Ajouter des données fictives aux tables (cf. query-insert-data.txt). 
 
 ## Lancement : 
 - Télécharger le zip du projet ou
