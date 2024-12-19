@@ -17,6 +17,7 @@ Guide création de la base de données :
 - Ouvrir Visual Studio
 - Cliquer sur 'ouvrir un projet'
 - Ouvrir CRA/CRA.csproj
+- Modifier le fichier "CRA/appsettings.json" avec les informations sur votre base de données à la ligne "DefaultConnection" 
 - Générer la solution
 - Exécuter l'application
 
